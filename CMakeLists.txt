@@ -64,7 +64,12 @@ find_package(PythonInterp) # this is to make the libraries consistent with the i
 find_package (PythonLibs)
 find_package (ZLIB REQUIRED)
 find_package (BZip2 REQUIRED)
-find_package (Boost REQUIRED COMPONENTS python filesystem system)
+if (${PYTHON_VERSION_MAJOR} EQUAL "3")
+  set (BOOST_PYTHON "python37")
+else()
+  set (BOOST_PYTHON "python")
+endif()
+find_package (Boost REQUIRED COMPONENTS ${BOOST_PYTHON} filesystem system)
 
 message (STATUS "zlib library: ${ZLIB_LIBRARIES}")
 message (STATUS "BZip2 library: ${BZIP2_LIBRARIES}")

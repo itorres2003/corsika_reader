@@ -58,6 +58,7 @@ void register_ShowerFile()
   class_<ShowerIterator>("ShowerIterator")
     .def("__iter__", identity)
     .def("next", &ShowerIterator::next_shower, return_internal_reference<>())
+    .def("__next__", &ShowerIterator::next_shower, return_internal_reference<>())
     ;
 
   Shower& (ShowerFile::*get_current)() = &ShowerFile::GetCurrentShower;
@@ -71,6 +72,7 @@ void register_ShowerFile()
     .add_property("run_header", make_function(&ShowerFile::GetRunHeader, return_internal_reference<>()))
     .add_property("n_events", &ShowerFile::GetNEvents)
     .def("events", get_shower_iterator)
+    .def("__iter__", get_shower_iterator)
     //.staticmethod("IsValid")
     .add_property("current_shower", make_function(get_current, return_internal_reference<>()))
     .def("shower", get_shower, return_internal_reference<>())

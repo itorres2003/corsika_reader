@@ -1,15 +1,14 @@
-================
 CORSIKA reader
-================
+==============
 
 C++/Python utility for reading CORSIKA files.
 
-[![Build Status](https://travis-ci.org/IceCube-SPNO/corsika_reader.svg?branch=master)](https://travis-ci.org/IceCube-SPNO/corsika_reader)
+[![Build Status](https://travis-ci.org/lukasnellen/corsika_reader.svg?branch=master)](https://travis-ci.org/lukasnellen/corsika_reader)
 
 [Documentation](https://icecube-spno.github.io/corsika_reader)
 
-installation:
-=============
+Installation
+------------
 
 ```
 cmake /path/to/source -DCMAKE_INSTALL_PREFIX=/path/to/install
@@ -19,13 +18,13 @@ make install
 
 The `-DFETCH_CORSIKA_DATA=True` option to cmake fetches some corsika files that are used in tests and examples. They are installed in share/corsika/data. These are downloaded only once.
 
-### Requirements:
+### Requirements
 
 0. CMake.
 0. Boost development libraries (libboost-...-dev): python, iostreams, test
 0. Python (python-devel)
 
-### Some compilation issues:
+### Some compilation issues
 
 A problem occurs when using some older versions of boost with cmake-2.8.6-rc2 or later, causing the following error:
 ```
